@@ -8,16 +8,13 @@ def home(request):
     locations = Location.objects.all()
 
     initialMap = folium.Map(location=[40.8218488, 73.581502], zoom_start=7)
-
     latitudes = []
     longitudes = []
-    for location in locations:
-        lat = location.lat
-        latitudes.append(lat)
 
+    # нахождение долготы и широты
     for location in locations:
-        lng = location.lng
-        longitudes.append(lng)
+        latitudes.append(location.lat)
+        longitudes.append(location.lng)
 
     print(latitudes)
     print(longitudes)
